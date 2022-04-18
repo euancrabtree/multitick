@@ -78,7 +78,7 @@ func (t *Ticker) Subscribe() <-chan time.Time {
 
 // Unsubscribe takes an existing subscriber channel and removes it from the
 // ticker, preventing future updates and allowing resources to be released.
-func (t *Ticker) Unubscribe(c <-chan time.Time) {
+func (t *Ticker) Unsubscribe(c <-chan time.Time) {
 	t.mux.Lock()
 	defer t.mux.Unlock()
 
