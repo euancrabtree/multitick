@@ -85,7 +85,8 @@ func (t *Ticker) Unsubscribe(c <-chan time.Time) {
 	for i, e := range t.chans {
 		if e == c {
 			t.chans[i] = t.chans[len(t.chans)-1]
-			t.chans = t.chans[:0]
+			t.chans = t.chans[:len(t.chans)-1]
+			return
 		}
 	}
 }
